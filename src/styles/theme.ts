@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 export default {
   colors: {
     background: 'radial-gradient(#282C34CC, #282C34)',
