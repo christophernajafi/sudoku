@@ -5,10 +5,9 @@ import { Provider } from 'react-redux'
 import { PersistGate } from 'redux-persist/integration/react'
 
 import reportWebVitals from './reportWebVitals'
-import { unregister, configureStore } from './core'
+import { configureStore, register } from './core'
 import { GlobalStyles, theme } from './styles'
-import { Content, Title, Card } from './components'
-import Grid from './components/grid'
+import { Card, Content, Grid, NewButton, Numbers, Title } from './components'
 
 const { store, persistor } = configureStore()
 
@@ -20,7 +19,9 @@ ReactDOM.render(
         <Content data-cy="content">
           <Title data-cy="title">Sudoku</Title>
           <Card data-cy="card">
+            <NewButton />
             <Grid />
+            <Numbers />
           </Card>
         </Content>
       </PersistGate>
@@ -30,4 +31,4 @@ ReactDOM.render(
 )
 
 reportWebVitals()
-unregister()
+register()
