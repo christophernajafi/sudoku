@@ -1,7 +1,12 @@
 import { AnyAction } from 'redux'
 
 import { GRID } from '../typings'
-import { copyGrid, createFullGrid, removeNumbers, compareArrays } from '../utils'
+import {
+  copyGrid,
+  createFullGrid,
+  removeNumbers,
+  compareArrays,
+} from '../utils'
 
 import * as types from './types'
 import { IReducer } from './interfaces'
@@ -28,12 +33,12 @@ function reducer(state = initialState, action: AnyAction): IReducer {
         if (
           state.solvedGrid[action.coords[0]][action.coords[1]] !== action.value
         ) {
-          alert('Incorrect Option!')
+          alert('Incorrect number! Please try again.')
           return state
         }
         state.workingGrid[action.coords[0]][action.coords[1]] = action.value
         if (compareArrays(state.workingGrid, state.solvedGrid))
-          alert('Completed!')
+          alert('Congratulations, you have completed the sudoku puzzle!')
         return { ...state, workingGrid: [...state.workingGrid] as GRID }
       }
       return state
